@@ -7,11 +7,19 @@ function User($resource, API) {
   return $resource(
     API + "/users/:id", { id: "@_id" },
     {
-      "get":    { method: "GET" },
-      "save":   { method: "POST" },
-      "query":  { method: "GET", isArray: false },
-      "remove": { method: "DELETE" },
-      "delete": { method: "DELETE" }
+      "get":      { method: "GET" },
+      "save":     { method: "POST" },
+      "query":    { method: "GET", isArray: false },
+      "remove":   { method: "DELETE" },
+      "delete":   { method: "DELETE" },
+      "register": {
+        url:    API + "/register",
+        method: "POST"
+      },
+      "login":    {
+        url:    API + "/login",
+        method: "POST"
+      }
     }
   );
 }

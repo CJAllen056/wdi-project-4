@@ -29,11 +29,11 @@ function UsersController(User, CurrentUser) {
   }
 
   function register() {
-
+    User.register(self.user, handleLogin, handleError);
   }
 
   function login() {
-
+    User.login(self.user, handleLogin, handleError);
   }
 
   function logout() {
