@@ -2,8 +2,8 @@ angular
 .module("sketchApp")
 .controller("UsersController", UsersController);
 
-UsersController.$inject = ["User", "CurrentUser"];
-function UsersController(User, CurrentUser) {
+UsersController.$inject = ['User', 'CurrentUser', '$state'];
+function UsersController(User, CurrentUser, $state){
   var self = this;
 
   self.all            = [];
@@ -25,8 +25,10 @@ function UsersController(User, CurrentUser) {
   function handleLogin(res) {
     var token = res.token ? res.token : null;
     if (token) {
-
+      self.getUsers();
+      $state.go('home');
     }
+    self.currentUser = CurrentUser.getUser();
   }
 
   function handleError(err) {
