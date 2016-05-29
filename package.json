@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/CJAllen056/wdi-project-4#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "method-override": "^2.3.6",
+    "morgan": "^1.7.0"
   }
 }
