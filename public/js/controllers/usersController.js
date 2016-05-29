@@ -17,13 +17,15 @@ function UsersController(User, CurrentUser) {
   self.checkLoggedIn = checkLoggedIn;
 
   function getUsers() {
-
+    User.query(function(data){
+      self.all = data.users;
+    });
   }
 
   function handleLogin(res) {
     var token = res.token ? res.token : null;
     if (token) {
-      
+
     }
   }
 
@@ -44,7 +46,8 @@ function UsersController(User, CurrentUser) {
   }
 
   function checkLoggedIn() {
-
+    self.currentUser = CurrentUser.getUser();
+    return !!self.currentUser;
   }
 
   if (checkLoggedIn()) {

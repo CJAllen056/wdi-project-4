@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Sketch-off</title>
-    <script type="text/javascript" src="/vendor/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/vendor/angular/angular.min.js"></script>
-    <script type="text/javascript" src="/vendor/angular-resource/angular-resource.min.js"></script>
-    <script type="text/javascript" src="/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script type="text/javascript" src="/js/client.js"></script>
-    <script type="text/javascript" src="js/services/authInterceptor.js"></script>
-    <script type="text/javascript" src="js/services/tokenService.js"></script>
-    <script type="text/javascript" src="js/services/currentUser.js"></script>
-  </head>
-  <body>
-    <h1>Home</h1>
-    <h2>Register</h2>
-  <form class="register" method="post" action="/register">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" class="form-control" placeholder="Username">
-    </div>
-    <div class="form-group">
-      <label for="firstName">First name</label>
-      <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First name">
-    </div>
-    <div class="form-group">
-      <label for="lastName">Last name</label>
-      <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last name">
-    </div>
-    <div class="form-group">
-      <label for="image">image</label>
-      <input type="text" name="image" id="image" class="form-control" placeholder="Image URL">
-    </div>
-    <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-    </div>
-    <div class="form-group">
-      <label for="passwordConfirmation">Password</label>
-      <input type="password" name="passwordConfirmation" id="passwordConfirmation" class="form-control" placeholder="Confirm Password">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
-  <button id="getUsers">Get Users</button>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Sketch-off</title>
+  <script type="text/javascript" src="/vendor/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/vendor/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/vendor/angular-resource/angular-resource.min.js"></script>
+  <script type="text/javascript" src="/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="/public/js/client.js"></script>
+  <script type="text/javascript" src="/public/js/services/authInterceptor.js"></script>
+  <script type="text/javascript" src="/public/js/services/tokenService.js"></script>
+  <script type="text/javascript" src="/public/js/services/currentUser.js"></script>
+</head>
+
+<body ng-controller="UsersController as users">
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" ui-sref-active="active" ui-sref="home">Angular Authentication</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-show="users.checkLoggedIn()">
+              <a href="#" ui-sref="users">Users</a>
+            </li>
+            <li ng-hide="users.checkLoggedIn()">
+              <a href="#" ui-sref="login">Login</a>
+            </li>
+            <li ng-hide="users.checkLoggedIn()">
+              <a href="#" ui-sref="register">Register</a>
+            </li>
+            <li ng-show="users.checkLoggedIn()">
+              <a href="#"ui-sref="home" ng-click="users.logout()">Logout</a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </header>
+
+  <main class="container" ui-view></main>
+
+</body>
 </html>
