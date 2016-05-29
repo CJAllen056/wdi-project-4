@@ -14,6 +14,8 @@ mongoose.connect(config.database);
 
 require("./config/passport")(passport);
 
+app.use(express.static(__dirname + "/public"));
+
 app.use(morgan("dev"));
 
 app.use(methodOverride(function(req, res) {
@@ -48,6 +50,10 @@ app.use(cors());
 
 var routes = require('./config/routes');
 app.use("/api", routes);
+
+app.get("*", function(req, res) {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 app.listen(config.port, function() {
   console.log("Sketch-off is running on port ", config.port);
