@@ -21,7 +21,10 @@ function UsersController(User, CurrentUser) {
   }
 
   function handleLogin(res) {
-
+    var token = res.token ? res.token : null;
+    if (token) {
+      
+    }
   }
 
   function handleError(err) {

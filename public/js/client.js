@@ -1,7 +1,10 @@
 angular
 .module("sketchApp", ["ngResource", "angular-jwt", "ui.router"])
 .constant("API", ["http://localhost:3000/api"])
-.config(mainRouter);
+.config(mainRouter)
+.config(function($httpProvider) {
+  $httpProvider.interceptors.push("authInterceptor")
+});
 
 mainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
 function mainRouter($stateProvider, $urlRouterProvider) {
