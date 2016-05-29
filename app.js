@@ -1,10 +1,13 @@
-var config          = require("./config/config");
 var express         = require("express");
 var morgan          = require("morgan");
 var methodOverride  = require("method-override");
 var bodyParser      = require("body-parser");
+var mongoose        = require("mongoose");
+var config          = require("./config/config");
 
-var app     = express();
+var app             = express();
+
+mongoose.connect(config.database);
 
 app.use(morgan("dev"));
 
@@ -20,5 +23,5 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(config.port, function() {
-  console.log("Sketch-off is running on port ", port);
+  console.log("Sketch-off is running on port ", config.port);
 });
