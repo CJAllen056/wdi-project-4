@@ -2,8 +2,8 @@ angular
 .module('logging')
 .service('TokenService', TokenService);
 
-TokenService.$inject = "$window";
-function TokenService($window) {
+TokenService.$inject = ["$window", "jwtHelper"];
+function TokenService($window, jwtHelper) {
   var self = this;
 
   self.setToken = setToken;
@@ -24,6 +24,10 @@ function TokenService($window) {
   }
 
   function decodeToken(){
-
+    var token = self.getToken();
+    if (token) {
+      var decodedUser = jwtHelper.decodeToken(token);
+      return token ? decodedUser._doc : null;
+    }
   }
 }
