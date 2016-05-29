@@ -3,11 +3,14 @@ var morgan          = require("morgan");
 var methodOverride  = require("method-override");
 var bodyParser      = require("body-parser");
 var mongoose        = require("mongoose");
+var passport        = require("passport");
 var config          = require("./config/config");
 
 var app             = express();
 
 mongoose.connect(config.database);
+
+require("./config/passport")(passport);
 
 app.use(morgan("dev"));
 
@@ -21,6 +24,8 @@ app.use(methodOverride(function(req, res) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(passport.initialize());
 
 app.listen(config.port, function() {
   console.log("Sketch-off is running on port ", config.port);
