@@ -19,8 +19,8 @@ function TokenService($window, jwtHelper) {
     return $window.localStorage['auth-token'];
   }
 
-  function removeToken(){
-
+  function removeToken() {
+    return $window.localStorage.removeItem('auth-token');
   }
 
   function decodeToken(){

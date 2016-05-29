@@ -42,7 +42,9 @@ function UsersController(User, CurrentUser) {
   }
 
   function logout() {
-
+    self.all         = [];
+    self.currentUser = null;
+    CurrentUser.clearUser();
   }
 
   function checkLoggedIn() {

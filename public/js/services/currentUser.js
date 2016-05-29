@@ -13,7 +13,8 @@ function CurrentUser(TokenService){
         return self.user ? self.user : TokenService.decodeToken();
     }
 
-    function clearUser() {
-
+    function clearUser(){
+      TokenService.removeToken();
+      self.user = null;
     }
 }
