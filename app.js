@@ -5,6 +5,7 @@ var bodyParser      = require("body-parser");
 var mongoose        = require("mongoose");
 var passport        = require("passport");
 var expressJWT      = require("express-jwt");
+var cors            = require("cors");
 var config          = require("./config/config");
 
 var app             = express();
@@ -42,6 +43,11 @@ app.use(function(err, req, res, next) {
   }
   next();
 });
+
+app.use(cors());
+
+var routes = require('./config/routes');
+app.use("/api", routes);
 
 app.listen(config.port, function() {
   console.log("Sketch-off is running on port ", config.port);
