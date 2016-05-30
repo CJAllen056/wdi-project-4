@@ -48711,10 +48711,15 @@ function mainRouter($stateProvider, $urlRouterProvider) {
           $scope.$parent.users.user = res.user;
         });
       }
+    })
+    .state("canvas", {
+      url: "/draw",
+      templateUrl: "../views/canvas.html"
     });
 
   $urlRouterProvider.otherwise("/");
 }
+
 
 angular
 .module("sketchApp")

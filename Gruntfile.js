@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         options:  { reload: true }
       },
       scss: {
-        files:    ["src/scss/*.scss"],
+        files:    ["src/scss/**/*.scss"],
         tasks:    ["sass"],
         options:  { liveReload: true }
       },
