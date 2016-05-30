@@ -6,26 +6,26 @@ angular
   $httpProvider.interceptors.push("authInterceptor");
 });
 
-mainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
+mainRouter.$inject = ["$stateProvider", "$urlRouterProvider"];
 function mainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('home', {
+    .state("home", {
       url: "/",
       templateUrl: "../views/home.html"
     })
-    .state('login', {
+    .state("login", {
       url: "/login",
       templateUrl: "../views/authentications/login.html"
     })
-    .state('register', {
+    .state("register", {
       url: "/register",
       templateUrl: "../views/authentications/register.html"
     })
-    .state('users', {
+    .state("users", {
       url: "/users",
       templateUrl: "../views/users/index.html"
     })
-    .state('user', {
+    .state("user", {
       url: "/users/:id",
       templateUrl: "../views/users/show.html",
       controller: function($scope, $stateParams, User) {
