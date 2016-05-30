@@ -11,12 +11,11 @@ function AuthInterceptor(API, TokenService) {
       if (config.url.indexOf(API) === 0 && token) {
         config.headers.Authorization = "Bearer " + token;
       }
+      
       return config;
     },
 
     response: function(res){
-      console.log(res);
-
       if (res.config.url.indexOf(API) === 0 && res.data.token) {
         TokenService.setToken(res.data.token);
       }

@@ -14,7 +14,7 @@ function UsersController(User, CurrentUser, $state){
   self.register       = register;
   self.login          = login;
   self.logout         = logout;
-  self.checkLoggedIn = checkLoggedIn;
+  self.checkLoggedIn  = checkLoggedIn;
 
   function getUsers() {
     User.query(function(data){
