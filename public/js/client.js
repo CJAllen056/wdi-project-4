@@ -48785,6 +48785,15 @@ function UsersController(User, CurrentUser, $state){
 
 angular
 .module("sketchApp")
+.factory("Game", Game);
+
+Game.$inject = ["$resource"];
+function Game($resource) {
+  
+}
+
+angular
+.module("sketchApp")
 .factory("User", User);
 
 User.$inject = ["$resource", "API"];
