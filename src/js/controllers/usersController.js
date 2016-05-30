@@ -2,7 +2,7 @@ angular
 .module("sketchApp")
 .controller("UsersController", UsersController);
 
-UsersController.$inject = ['User', 'CurrentUser', '$state'];
+UsersController.$inject = ["User", "CurrentUser", "$state"];
 function UsersController(User, CurrentUser, $state){
   var self = this;
 
@@ -27,7 +27,7 @@ function UsersController(User, CurrentUser, $state){
     if (token) {
       self.getUsers();
       self.currentUser = CurrentUser.getUser();
-      $state.go('home');
+      $state.go("home");
     }
   }
 

@@ -48723,9 +48723,27 @@ function mainRouter($stateProvider, $urlRouterProvider) {
 
 angular
 .module("sketchApp")
+.controller("GamesController", GamesController);
+
+GamesController.$inject = ["Game", "$state"];
+function GamesController(Game, $state) {
+  var self = this;
+
+  self.all      = [];
+  self.getGames = getGames;
+
+  function getGames() {
+    Game.query(function(data) {
+      self.all = data.games;
+    });
+  }
+}
+
+angular
+.module("sketchApp")
 .controller("UsersController", UsersController);
 
-UsersController.$inject = ['User', 'CurrentUser', '$state'];
+UsersController.$inject = ["User", "CurrentUser", "$state"];
 function UsersController(User, CurrentUser, $state){
   var self = this;
 
@@ -48750,7 +48768,7 @@ function UsersController(User, CurrentUser, $state){
     if (token) {
       self.getUsers();
       self.currentUser = CurrentUser.getUser();
-      $state.go('home');
+      $state.go("home");
     }
   }
 
