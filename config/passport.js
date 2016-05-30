@@ -9,7 +9,7 @@ module.exports = function(passport) {
     session:            false
   }, function(req, email, password, done) {
     User.findOne({ "email": email }, function(err, user) {
-      if (err) return done(err, false, { message: "Something went wrong" });
+      if (err) return done(err, false, { message: "We were not able to retrieve your email, please try again" });
       if (user) return done(null, false, { messge: "That email is already registered, please choose another" });
 
       var newUser = new User({
@@ -23,7 +23,7 @@ module.exports = function(passport) {
       });
 
       newUser.save(function(err, user) {
-        if (err) return done(err, false, { message: "Something went wrong" });
+        if (err) return done(err, false, { message: "We were not able to create a new user. Please try again." });
         return done(null, user);
       });
     });

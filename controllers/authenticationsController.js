@@ -27,7 +27,7 @@ function login(req, res, next) {
   User.findOne({
     "email": req.body.email
   }, function(err, user) {
-    if (err) return res.status(500).json({ message: "Something went wrong" });
+    if (err) return res.status(500).json({ message: "We were not able to log you in. Please try again" });
     if (!user) return res.status(403).json({ message: "No user with that email address found" });
     if (!user.validatePassword(req.body.password)) return res.status(403).json({ message: "Authentication failed" });
 

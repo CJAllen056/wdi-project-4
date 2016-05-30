@@ -48750,7 +48750,7 @@ function UsersController(User, CurrentUser, $state){
   }
 
   function handleError(err) {
-    self.error = "Something went wrong!";
+    self.error = err;
   }
 
   function register() {
