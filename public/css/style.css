@@ -7945,12 +7945,26 @@ button.close {
 
 /*# sourceMappingURL=bootstrap.css.map */
 #canvas {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   border: 2px solid black;
   width: 800px;
   height: 500px;
 }
 
+header {
+  height: 100px;
+}
+
+header .navbar-brand {
+  line-height: 100px;
+  font-size: 50px;
+  height: 100%;
+  padding: 0;
+}
+
 body {
-  background-color: lightgrey;
+  background-image: url("../images/lined_paper.jpg");
+  background-size: 100% 1000px;
+  max-width: 1000px;
+  margin: 0 auto;
 }

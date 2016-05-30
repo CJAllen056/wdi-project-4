@@ -1,6 +1,10 @@
 @import "_bower";
 @import "canvas/canvas";
+@import "header";
 
 body {
-  background-color: lightgrey;
+  background-image: url("../images/lined_paper.jpg");
+  background-size: 100% 1000px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
