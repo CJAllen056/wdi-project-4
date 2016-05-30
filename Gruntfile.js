@@ -24,16 +24,16 @@ module.exports = function(grunt) {
     sass: {
       expanded: {
         options:  { outputStyle: "expanded" },
-        files:    { "public/css/style.css": "src/scss/*.scss" }
+        files:    { "public/css/style.css": "src/scss/style.scss" }
       },
       compressed: {
         options:  { outputStyle: "compressed" },
-        files:    { "public/css/style.min.css": "src/scss/*.scss" }
+        files:    { "public/css/style.min.css": "src/scss/style.scss" }
       }
     },
     concat: {
       dist: {
-        src:  ["src/js/client.js", "src/js/**/*.js"],
+        src:  ["src/js/_bower.js", "src/js/client.js", "src/js/**/*.js"],
         dest: "public/js/client.js"
       }
     },

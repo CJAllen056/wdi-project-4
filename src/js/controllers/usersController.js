@@ -26,9 +26,9 @@ function UsersController(User, CurrentUser, $state){
     var token = res.token ? res.token : null;
     if (token) {
       self.getUsers();
+      self.currentUser = CurrentUser.getUser();
       $state.go('home');
     }
-    self.currentUser = CurrentUser.getUser();
   }
 
   function handleError(err) {
@@ -50,7 +50,6 @@ function UsersController(User, CurrentUser, $state){
   }
 
   function checkLoggedIn() {
-    self.currentUser = CurrentUser.getUser();
     return !!self.currentUser;
   }
 
