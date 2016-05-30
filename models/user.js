@@ -13,7 +13,7 @@ var userSchema = new mongoose.Schema({
   timestamps:   true
 });
 
-userSchema.methods.validatePassword = function() {
+userSchema.methods.validatePassword = function(password) {
   return bcrypt.compareSync(password, this.passwordHash, null);
 };
 
