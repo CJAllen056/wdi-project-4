@@ -1,6 +1,6 @@
 angular
-.module('logging')
-.factory('authInterceptor', AuthInterceptor);
+.module("sketchApp")
+.factory("authInterceptor", AuthInterceptor);
 
 AuthInterceptor.$inject = ["API", "TokenService"];
 function AuthInterceptor(API, TokenService) {
@@ -9,7 +9,7 @@ function AuthInterceptor(API, TokenService) {
       var token = TokenService.getToken();
 
       if (config.url.indexOf(API) === 0 && token) {
-        config.headers.Authorization = 'Bearer ' + token;
+        config.headers.Authorization = "Bearer " + token;
       }
       return config;
     },

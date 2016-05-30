@@ -1,6 +1,6 @@
 angular
-.module('logging')
-.service('TokenService', TokenService);
+.module("sketchApp")
+.service("TokenService", TokenService);
 
 TokenService.$inject = ["$window", "jwtHelper"];
 function TokenService($window, jwtHelper) {
@@ -12,15 +12,15 @@ function TokenService($window, jwtHelper) {
   self.decodeToken = decodeToken;
 
   function setToken(token){
-    return $window.localStorage.setItem('auth-token', token);
+    return $window.localStorage.setItem("auth-token", token);
   }
 
   function getToken() {
-    return $window.localStorage['auth-token'];
+    return $window.localStorage["auth-token"];
   }
 
   function removeToken() {
-    return $window.localStorage.removeItem('auth-token');
+    return $window.localStorage.removeItem("auth-token");
   }
 
   function decodeToken(){

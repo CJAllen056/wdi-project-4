@@ -1,6 +1,6 @@
 angular
-  .module('logging')
-  .service("CurrentUser", CurrentUser);
+.module("sketchApp")
+.service("CurrentUser", CurrentUser);
 
 CurrentUser.$inject = ["TokenService"];
 function CurrentUser(TokenService){
