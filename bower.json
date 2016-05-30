@@ -1,0 +1,26 @@
+{
+  "name": "sketch-off",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "CJAllen056 <christopherjallen056@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/CJAllen056/wdi-project-4",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-resource": "^1.5.6",
+    "angular-jwt": "^0.0.9",
+    "angular": "^1.5.6",
+    "angular-ui-router": "^0.3.0",
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6"
+  }
+}

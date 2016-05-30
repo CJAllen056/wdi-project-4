@@ -2,7 +2,24 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
     jshint: {
-      src: ["src/js/**/*.js"]
+      src: ["src/js/**/*.js", "!src/js/_bower.js"]
+    },
+    bower_concat: {
+      all: {
+        dest: {
+          "js":   "src/js/_bower.js",
+          "css":  "src/scss/_bower.scss"
+        },
+        mainFiles: {
+          bootstrap: [
+            "dist/js/bootstrap.js",
+            "dist/css/bootstrap.css"
+          ]
+        },
+        dependencies: {
+          bootstrap: ["jquery"]
+        }
+      }
     },
     sass: {
       expanded: {
@@ -29,7 +46,7 @@ module.exports = function(grunt) {
         options:  { reload: true }
       },
       scss: {
-        files:    ["src/scss/**/*.scss"],
+        files:    ["src/scss/*.scss"],
         tasks:    ["sass"],
         options:  { liveReload: true }
       },
@@ -40,12 +57,12 @@ module.exports = function(grunt) {
       },
       index: {
         files:    ["index.html"],
-        options:  { liveReload: true } 
+        options:  { liveReload: true }
       }
     }
   });
 
   require("load-grunt-tasks")(grunt);
 
-  grunt.registerTask("default", ["jshint", "sass", "concat", "uglify", "watch"]);
+  grunt.registerTask("default", ["jshint", "bower_concat", "sass", "concat", "uglify", "watch"]);
 };
