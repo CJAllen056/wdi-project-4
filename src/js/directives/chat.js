@@ -9,7 +9,8 @@ function postMessage(CurrentUser) {
     link: function(scope, element) {
       var $input    = $(".inputGuess");
       var $chatbox  = $(".chatArea");
-      var user      = CurrentUser.getUser().id;
+      // var user      = CurrentUser.getUser().id;
+      var user      = CurrentUser.getUser().username;
 
       $input.keyup(function(e) {
         if (e.keyCode === 13 && $input.val()) {
