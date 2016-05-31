@@ -1,0 +1,25 @@
+.chatPane {
+  display: inline-block;
+  height: 500px;
+  width: 248px;
+  margin-left: 2px;
+  border: 2px solid #E5A4B3;
+  background-color: rgba(255, 255, 255, 0.8);
+  float: left;
+
+  .chatArea {
+    height: 456px;
+  }
+
+  .inputGuess {
+    width: 244px;
+    height: 30px;
+    border: 0;
+    border-top: 2px solid #E5A4B3;
+    padding: 0;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}

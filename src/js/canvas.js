@@ -1,6 +1,6 @@
 angular
 .module("sketchApp")
-.directive("canvasDraw", drawOnCanvas);
+.directive("canvas-draw", drawOnCanvas);
 
 function drawOnCanvas() {
   console.log("hello");

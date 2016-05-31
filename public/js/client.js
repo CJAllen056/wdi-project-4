@@ -48713,8 +48713,8 @@ function mainRouter($stateProvider, $urlRouterProvider) {
       }
     })
     .state("canvas", {
-      url: "/draw",
-      templateUrl: "../views/canvas.html"
+      url: "/game",
+      templateUrl: "../views/gameBoard.html"
     });
 
   $urlRouterProvider.otherwise("/");
@@ -48722,7 +48722,7 @@ function mainRouter($stateProvider, $urlRouterProvider) {
 
 angular
 .module("sketchApp")
-.directive("canvasDraw", drawOnCanvas);
+.directive("canvasdraw", drawOnCanvas);
 
 function drawOnCanvas() {
   console.log("hello");

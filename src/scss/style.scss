@@ -1,5 +1,7 @@
+@import "__reset";
 @import "_bower";
-@import "canvas/canvas";
+@import "game-board/canvas";
+@import "game-board/chat.scss";
 @import "header";
 
 body {
