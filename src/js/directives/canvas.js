@@ -3,10 +3,11 @@ angular
 .directive("canvasDraw", drawOnCanvas);
 
 function drawOnCanvas() {
-  console.log("hello");
   return {
     restrict: "A",
-
+    scope: {
+      color: "="
+    },
     link: function(scope, element) {
       var ctx     = element[0].getContext("2d");
       var drawing = false;
@@ -48,7 +49,7 @@ function drawOnCanvas() {
       function draw(lX, lY, cX, cY) {
         ctx.moveTo(lX,lY);
         ctx.lineTo(cX,cY);
-        ctx.strokeStyle = "black";
+        ctx.strokeStyle = scope.color;
         ctx.stroke();
       }
     }

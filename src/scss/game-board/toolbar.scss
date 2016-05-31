@@ -8,7 +8,7 @@
   float: left;
   background: white;
 
-  .toolbarItem {
+  .toolbarColor, .toolbarSize {
     height: 34px;
     width: 34px;
     border-radius: 4px;
@@ -41,7 +41,7 @@
     }
     &.smallPicker {
       text-align: center;
-      
+
       div {
         display: inline-block;
         border: 2px solid black;
@@ -53,7 +53,7 @@
     }
     &.mediumPicker {
       text-align: center;
-      
+
       div {
         display: inline-block;
         border: 8px solid black;
@@ -65,7 +65,7 @@
     }
     &.largePicker {
       text-align: center;
-      
+
       div {
         display: inline-block;
         border: 14px solid black;

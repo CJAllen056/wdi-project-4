@@ -1,23 +1,18 @@
-<div class="toolbar">
-  <div class="toolbarItem blackPicker"></div>
-  <div class="toolbarItem redPicker"></div>
-  <div class="toolbarItem bluePicker"></div>
-  <div class="toolbarItem greenPicker"></div>
-  <div class="toolbarItem yellowPicker"></div>
-  <div class="toolbarItem orangePicker"></div>
-  <div class="toolbarItem purplePicker"></div>
-  <div class="toolbarItem eraserPicker"></div>
-  <div class="toolbarItem smallPicker"><div></div></div>
-  <div class="toolbarItem mediumPicker"><div></div></div>
-  <div class="toolbarItem largePicker"><div></div></div>
-</div>
-<canvas canvas-draw width="660" height="500" class="canvas"></canvas>
-<div class="chatPane">
-  <div class="chatArea">
-    <ul class="messages"></ul>
+<section ng-controller="GamesController as game">
+  <div class="toolbar">
+    <div ng-repeat="(color,hash) in game.colors" class="toolbarColor {{ color + 'Picker'}}" ng-click="game.pickColor(hash)"></div>
+    <div class="toolbarSize smallPicker"><div></div></div>
+    <div class="toolbarSize mediumPicker"><div></div></div>
+    <div class="toolbarSize largePicker"><div></div></div>
   </div>
-  <input class="inputGuess" placeholder="Type your guess here..."/>
-</div>
-<div class="scorePane">
-  <ul class="scores"></ul>
-</div>
+  <canvas canvas-draw width="660" height="500" class="canvas" color="game.color"></canvas>
+  <div class="chatPane">
+    <div class="chatArea">
+      <ul class="messages"></ul>
+    </div>
+    <input class="inputGuess" placeholder="Type your guess here..."/>
+  </div>
+  <div class="scorePane">
+    <ul class="scores"></ul>
+  </div>
+</section>

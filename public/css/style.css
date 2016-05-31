@@ -8048,51 +8048,51 @@ button.close {
   background: white;
 }
 
-.toolbar .toolbarItem {
+.toolbar .toolbarColor, .toolbar .toolbarSize {
   height: 34px;
   width: 34px;
   border-radius: 4px;
   margin: 2px;
 }
 
-.toolbar .toolbarItem.blackPicker {
+.toolbar .toolbarColor.blackPicker, .toolbar .toolbarSize.blackPicker {
   background: black;
 }
 
-.toolbar .toolbarItem.redPicker {
+.toolbar .toolbarColor.redPicker, .toolbar .toolbarSize.redPicker {
   background: #F53C3C;
 }
 
-.toolbar .toolbarItem.bluePicker {
+.toolbar .toolbarColor.bluePicker, .toolbar .toolbarSize.bluePicker {
   background: #6676EA;
 }
 
-.toolbar .toolbarItem.greenPicker {
+.toolbar .toolbarColor.greenPicker, .toolbar .toolbarSize.greenPicker {
   background: #17BB17;
 }
 
-.toolbar .toolbarItem.yellowPicker {
+.toolbar .toolbarColor.yellowPicker, .toolbar .toolbarSize.yellowPicker {
   background: #E9EC0D;
 }
 
-.toolbar .toolbarItem.orangePicker {
+.toolbar .toolbarColor.orangePicker, .toolbar .toolbarSize.orangePicker {
   background: orange;
 }
 
-.toolbar .toolbarItem.purplePicker {
+.toolbar .toolbarColor.purplePicker, .toolbar .toolbarSize.purplePicker {
   background: #B32EB3;
 }
 
-.toolbar .toolbarItem.eraserPicker {
+.toolbar .toolbarColor.eraserPicker, .toolbar .toolbarSize.eraserPicker {
   background: white;
   border: 1px solid black;
 }
 
-.toolbar .toolbarItem.smallPicker {
+.toolbar .toolbarColor.smallPicker, .toolbar .toolbarSize.smallPicker {
   text-align: center;
 }
 
-.toolbar .toolbarItem.smallPicker div {
+.toolbar .toolbarColor.smallPicker div, .toolbar .toolbarSize.smallPicker div {
   display: inline-block;
   border: 2px solid black;
   border-radius: 4px;
@@ -8101,11 +8101,11 @@ button.close {
   margin: 16px auto;
 }
 
-.toolbar .toolbarItem.mediumPicker {
+.toolbar .toolbarColor.mediumPicker, .toolbar .toolbarSize.mediumPicker {
   text-align: center;
 }
 
-.toolbar .toolbarItem.mediumPicker div {
+.toolbar .toolbarColor.mediumPicker div, .toolbar .toolbarSize.mediumPicker div {
   display: inline-block;
   border: 8px solid black;
   border-radius: 10px;
@@ -8114,11 +8114,11 @@ button.close {
   margin: 8px auto;
 }
 
-.toolbar .toolbarItem.largePicker {
+.toolbar .toolbarColor.largePicker, .toolbar .toolbarSize.largePicker {
   text-align: center;
 }
 
-.toolbar .toolbarItem.largePicker div {
+.toolbar .toolbarColor.largePicker div, .toolbar .toolbarSize.largePicker div {
   display: inline-block;
   border: 14px solid black;
   border-radius: 28px;

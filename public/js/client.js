@@ -48728,13 +48728,29 @@ GamesController.$inject = ["Game", "$state"];
 function GamesController(Game, $state) {
   var self = this;
 
-  self.all      = [];
-  self.getGames = getGames;
+  self.all       = [];
+  self.getGames  = getGames;
+  self.color     = "";
+  self.colors    = {
+    black: "black",
+    red: "#F53C3C",
+    blue: "#6676EA",
+    green: "#17BB17",
+    yellow: "#E9EC0D",
+    orange: "orange",
+    purple: "#B32EB3",
+    eraser: "white"
+  };
+  self.pickColor = pickColor;
 
   function getGames() {
     Game.query(function(data) {
       self.all = data.games;
     });
+  }
+
+  function pickColor(color) {
+    self.color = color;
   }
 }
 
@@ -48806,10 +48822,11 @@ angular
 .directive("canvasDraw", drawOnCanvas);
 
 function drawOnCanvas() {
-  console.log("hello");
   return {
     restrict: "A",
-
+    scope: {
+      color: "="
+    },
     link: function(scope, element) {
       var ctx     = element[0].getContext("2d");
       var drawing = false;
@@ -48851,7 +48868,7 @@ function drawOnCanvas() {
       function draw(lX, lY, cX, cY) {
         ctx.moveTo(lX,lY);
         ctx.lineTo(cX,cY);
-        ctx.strokeStyle = "black";
+        ctx.strokeStyle = scope.color;
         ctx.stroke();
       }
     }
