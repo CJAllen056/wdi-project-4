@@ -25,8 +25,8 @@ function GamesController(Game, $state) {
   self.size       = "";
   self.sizes      = {
     small:  2,
-    medium: 8,
-    large:  15
+    medium: 15,
+    large:  30
   };
   self.pickSize   = pickSize;
 
@@ -40,6 +40,7 @@ function GamesController(Game, $state) {
 
   function pickColor(color) {
     self.color = color;
+    $(".toolbarSize > div").css("border-color", color);
   }
 
   function pickSize(size) {
