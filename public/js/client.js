@@ -48752,6 +48752,8 @@ function GamesController(Game, $state) {
   };
   self.pickSize   = pickSize;
 
+  self.clearBoard = clearBoard;
+
   function getGames() {
     Game.query(function(data) {
       self.all = data.games;
@@ -48764,6 +48766,11 @@ function GamesController(Game, $state) {
 
   function pickSize(size) {
     self.size = size;
+  }
+
+  function clearBoard() {
+    var ctx = $(".canvas")[0].getContext("2d");
+    ctx.clearRect(0, 0, 660, 500);
   }
 }
 
