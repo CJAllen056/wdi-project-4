@@ -7993,10 +7993,10 @@ button.close {
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
-#canvas {
+.canvas {
   background-color: rgba(255, 255, 255, 0.8);
   border: 2px solid #E5A4B3;
-  width: 700px;
+  width: 660px;
   height: 500px;
   margin-right: 2px;
   float: left;
@@ -8035,6 +8035,96 @@ button.close {
   border: 2px solid #E5A4B3;
   background-color: rgba(255, 255, 255, 0.8);
   float: left;
+}
+
+.toolbar {
+  display: inline-block;
+  width: 40px;
+  height: 500px;
+  border-top: 2px solid #E5A4B3;
+  border-bottom: 2px solid #E5A4B3;
+  border-left: 2px solid #E5A4B3;
+  float: left;
+  background: white;
+}
+
+.toolbar .toolbarItem {
+  height: 34px;
+  width: 34px;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+.toolbar .toolbarItem.blackPicker {
+  background: black;
+}
+
+.toolbar .toolbarItem.redPicker {
+  background: #F53C3C;
+}
+
+.toolbar .toolbarItem.bluePicker {
+  background: #6676EA;
+}
+
+.toolbar .toolbarItem.greenPicker {
+  background: #17BB17;
+}
+
+.toolbar .toolbarItem.yellowPicker {
+  background: #E9EC0D;
+}
+
+.toolbar .toolbarItem.orangePicker {
+  background: orange;
+}
+
+.toolbar .toolbarItem.purplePicker {
+  background: #B32EB3;
+}
+
+.toolbar .toolbarItem.eraserPicker {
+  background: white;
+  border: 1px solid black;
+}
+
+.toolbar .toolbarItem.smallPicker {
+  text-align: center;
+}
+
+.toolbar .toolbarItem.smallPicker div {
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 0;
+  height: 0;
+  margin: 16px auto;
+}
+
+.toolbar .toolbarItem.mediumPicker {
+  text-align: center;
+}
+
+.toolbar .toolbarItem.mediumPicker div {
+  display: inline-block;
+  border: 8px solid black;
+  border-radius: 10px;
+  width: 0;
+  height: 0;
+  margin: 8px auto;
+}
+
+.toolbar .toolbarItem.largePicker {
+  text-align: center;
+}
+
+.toolbar .toolbarItem.largePicker div {
+  display: inline-block;
+  border: 14px solid black;
+  border-radius: 28px;
+  width: 0;
+  height: 0;
+  margin: 3px auto;
 }
 
 header {

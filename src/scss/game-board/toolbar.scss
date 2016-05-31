@@ -1,0 +1,79 @@
+.toolbar {
+  display: inline-block;
+  width: 40px;
+  height: 500px;
+  border-top: 2px solid #E5A4B3;
+  border-bottom: 2px solid #E5A4B3;
+  border-left: 2px solid #E5A4B3;
+  float: left;
+  background: white;
+
+  .toolbarItem {
+    height: 34px;
+    width: 34px;
+    border-radius: 4px;
+    margin: 2px;
+
+    &.blackPicker {
+      background: black;
+    }
+    &.redPicker {
+      background: #F53C3C;
+    }
+    &.bluePicker {
+      background: #6676EA;
+    }
+    &.greenPicker {
+      background: #17BB17;
+    }
+    &.yellowPicker {
+      background: #E9EC0D;
+    }
+    &.orangePicker {
+      background: orange;
+    }
+    &.purplePicker {
+      background: #B32EB3;
+    }
+    &.eraserPicker {
+      background: white;
+      border: 1px solid black;
+    }
+    &.smallPicker {
+      text-align: center;
+      
+      div {
+        display: inline-block;
+        border: 2px solid black;
+        border-radius: 4px;
+        width: 0;
+        height: 0;
+        margin: 16px auto;
+      }
+    }
+    &.mediumPicker {
+      text-align: center;
+      
+      div {
+        display: inline-block;
+        border: 8px solid black;
+        border-radius: 10px;
+        width: 0;
+        height: 0;
+        margin: 8px auto;
+      }
+    }
+    &.largePicker {
+      text-align: center;
+      
+      div {
+        display: inline-block;
+        border: 14px solid black;
+        border-radius: 28px;
+        width: 0;
+        height: 0;
+        margin: 3px auto;
+      }
+    }
+  }
+}

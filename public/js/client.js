@@ -48722,7 +48722,7 @@ function mainRouter($stateProvider, $urlRouterProvider) {
 
 angular
 .module("sketchApp")
-.directive("canvasdraw", drawOnCanvas);
+.directive("canvas-draw", drawOnCanvas);
 
 function drawOnCanvas() {
   console.log("hello");
