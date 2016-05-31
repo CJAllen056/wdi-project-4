@@ -48804,7 +48804,7 @@ function UsersController(User, CurrentUser, $state){
 
   self.all            = [];
   self.user           = null;
-  self.currentUser    = null;
+  self.currentUser    = CurrentUser.getUser();
   self.error          = null;
   self.getUsers       = getUsers;
   self.register       = register;
@@ -48852,6 +48852,7 @@ function UsersController(User, CurrentUser, $state){
   if (checkLoggedIn()) {
     self.getUsers();
   }
+
 
   return self;
 }
