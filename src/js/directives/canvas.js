@@ -1,11 +1,12 @@
 angular
 .module("sketchApp")
-.directive("canvas-draw", drawOnCanvas);
+.directive("canvasDraw", drawOnCanvas);
 
 function drawOnCanvas() {
   console.log("hello");
   return {
     restrict: "A",
+
     link: function(scope, element) {
       var ctx     = element[0].getContext("2d");
       var drawing = false;
