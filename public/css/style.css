@@ -8053,7 +8053,7 @@ button.close {
   width: 34px;
   border-radius: 4px;
   margin: 2px;
-  margin-top: 65px;
+  margin-top: 28px;
   line-height: 34px;
 }
 
@@ -8094,6 +8094,10 @@ button.close {
 
 .toolbar .toolbarColor.purplePicker, .toolbar .toolbarSize.purplePicker {
   background: #B32EB3;
+}
+
+.toolbar .toolbarColor.brownPicker, .toolbar .toolbarSize.brownPicker {
+  background: #855D14;
 }
 
 .toolbar .toolbarColor.eraserPicker, .toolbar .toolbarSize.eraserPicker {

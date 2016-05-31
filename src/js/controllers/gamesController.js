@@ -18,6 +18,7 @@ function GamesController(Game, $state) {
     yellow: "#E9EC0D",
     orange: "orange",
     purple: "#B32EB3",
+    brown:  "#855D14",
     eraser: "white"
   };
   self.pickColor  = pickColor;
