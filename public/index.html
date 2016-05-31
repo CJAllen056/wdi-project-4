@@ -9,7 +9,7 @@
 
 <body ng-controller="UsersController as users">
   <header>
-    <div class="container">
+    <div>
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -21,16 +21,16 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li ng-show="users.checkLoggedIn()">
+          <li class="header-button" ng-show="users.checkLoggedIn()">
             <a href="#" ui-sref="users">Users</a>
           </li>
-          <li ng-hide="users.checkLoggedIn()">
+          <li class="header-button" ng-hide="users.checkLoggedIn()">
             <a href="#" ui-sref="login">Login</a>
           </li>
-          <li ng-hide="users.checkLoggedIn()">
+          <li class="header-button" ng-hide="users.checkLoggedIn()">
             <a href="#" ui-sref="register">Register</a>
           </li>
-          <li ng-show="users.checkLoggedIn()">
+          <li class="header-button" ng-show="users.checkLoggedIn()">
             <a href="#"ui-sref="home" ng-click="users.logout()">Logout</a>
           </li>
         </ul>
