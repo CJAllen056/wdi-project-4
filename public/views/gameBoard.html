@@ -1,11 +1,9 @@
 <section ng-controller="GamesController as game">
   <div class="toolbar">
     <div ng-repeat="(color,hash) in game.colors" class="toolbarColor {{ color + 'Picker'}}" ng-click="game.pickColor(hash)"></div>
-    <div class="toolbarSize smallPicker"><div></div></div>
-    <div class="toolbarSize mediumPicker"><div></div></div>
-    <div class="toolbarSize largePicker"><div></div></div>
+    <div ng-repeat="(size, value) in game.sizes" class="toolbarSize {{ size + 'Picker' }}" ng-click="game.pickSize(value)"><div></div></div>
   </div>
-  <canvas canvas-draw width="660" height="500" class="canvas" color="game.color"></canvas>
+  <canvas canvas-draw width="660" height="500" class="canvas" color="game.color" size="game.size"></canvas>
   <div class="chatPane">
     <div class="chatArea">
       <ul class="messages"></ul>

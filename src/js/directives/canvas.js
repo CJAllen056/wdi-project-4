@@ -6,7 +6,8 @@ function drawOnCanvas() {
   return {
     restrict: "A",
     scope: {
-      color: "="
+      color:  "=",
+      size:   "="
     },
     link: function(scope, element) {
       var ctx     = element[0].getContext("2d");
@@ -50,6 +51,7 @@ function drawOnCanvas() {
         ctx.moveTo(lX,lY);
         ctx.lineTo(cX,cY);
         ctx.strokeStyle = scope.color;
+        ctx.lineWidth   = scope.size;
         ctx.stroke();
       }
     }
