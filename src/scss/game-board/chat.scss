@@ -1,14 +1,13 @@
 .chatPane {
   display: inline-block;
-  height: 500px;
+  height: 300px;
   width: 248px;
-  margin-left: 2px;
   border: 2px solid #E5A4B3;
   background-color: rgba(255, 255, 255, 0.8);
   float: left;
 
   .chatArea {
-    height: 456px;
+    height: 256px;
   }
 
   .inputGuess {

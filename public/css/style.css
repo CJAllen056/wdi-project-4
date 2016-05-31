@@ -15,7 +15,6 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
@@ -7999,21 +7998,21 @@ button.close {
   border: 2px solid #E5A4B3;
   width: 700px;
   height: 500px;
+  margin-right: 2px;
   float: left;
 }
 
 .chatPane {
   display: inline-block;
-  height: 500px;
+  height: 300px;
   width: 248px;
-  margin-left: 2px;
   border: 2px solid #E5A4B3;
   background-color: rgba(255, 255, 255, 0.8);
   float: left;
 }
 
 .chatPane .chatArea {
-  height: 456px;
+  height: 256px;
 }
 
 .chatPane .inputGuess {
@@ -8026,6 +8025,16 @@ button.close {
 
 .chatPane .inputGuess:focus {
   outline: 0;
+}
+
+.scorePane {
+  display: inline-block;
+  height: 198px;
+  width: 248px;
+  margin-top: 2px;
+  border: 2px solid #E5A4B3;
+  background-color: rgba(255, 255, 255, 0.8);
+  float: left;
 }
 
 header {
