@@ -8,6 +8,16 @@
 
   .chatArea {
     height: 256px;
+    padding: 0 4px;
+
+    p {
+      font-size: 11px;
+      margin-bottom: 5px;
+
+      strong {
+        font-size: 13px;
+      }
+    }
   }
 
   .inputGuess {
@@ -15,7 +25,7 @@
     height: 30px;
     border: 0;
     border-top: 2px solid #E5A4B3;
-    padding: 0;
+    padding: 0 4px;
 
     &:focus {
       outline: 0;

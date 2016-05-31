@@ -10,6 +10,8 @@ var config          = require("./config/config");
 
 var app             = express();
 
+var server          = require("http").createServer(app);
+
 mongoose.connect(config.database);
 
 require("./config/passport")(passport);
@@ -48,13 +50,25 @@ app.use(function(err, req, res, next) {
 
 app.use(cors());
 
-var routes = require('./config/routes');
+var routes = require("./config/routes");
 app.use("/api", routes);
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.listen(config.port, function() {
+server.listen(config.port, function() {
   console.log("Sketch-off is running on port ", config.port);
 });
+
+var io = require("socket.io")(server);
+
+// io.sockets.on("connection", function(socket) {
+//   socket.on("drawClick", function(data) {
+//     socket.broadcast.emit("draw", {
+//       x: data.x,
+//       y: data.y,
+//       type: data.type
+//     });
+//   });
+// });
