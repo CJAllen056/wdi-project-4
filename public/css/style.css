@@ -7960,6 +7960,7 @@ header .navbar-brand {
   font-size: 50px;
   height: 100%;
   padding: 0;
+  color: black;
 }
 
 header .nav {
@@ -7977,15 +7978,21 @@ header .nav .header-button a {
   line-height: 100px;
   height: 100%;
   padding: 0 15px;
+  color: black;
 }
 
 header .nav .header-button a:hover {
   background-color: rgba(255, 255, 255, 0);
+  color: black;
 }
 
 body {
-  background-image: url("../images/lined_paper.jpg");
+  background-image: url(../images/lined_paper.jpg);
   background-size: 100% 1000px;
-  max-width: 1000px;
+  max-width: 950px;
   margin: 0 auto;
+}
+
+* {
+  font-family: "Coming Soon";
 }
