@@ -56168,7 +56168,7 @@ function UsersController(User, CurrentUser, $state, $uibModal){
   }
 
   function openModal(modal) {
-    var modalInstance = $uibModal.open({
+    self.modalInstance = $uibModal.open({
       templateUrl:  "../views/authentications/" + modal + ".html",
       controller:   "UsersController",
       controllerAs: "users",
@@ -56180,17 +56180,13 @@ function UsersController(User, CurrentUser, $state, $uibModal){
       }
     });
 
-    modalInstance.result.then(function(selectedItem) {
+    self.modalInstance.result.then(function(selectedItem) {
       self.selected = selectedItem;
     });
   }
 
-  function loginOk() {
-    $uibModalInstance.close();
-  }
-
-  function loginCancel() {
-    $uibModalInstance.dismiss('cancel');
+  function closeModal() {
+    $close(self.modalInstance);
   }
 
   function logout() {

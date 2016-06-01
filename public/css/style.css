@@ -8184,9 +8184,10 @@ header .nav .header-button a {
   color: black;
 }
 
-header .nav .header-button a:hover {
+header .nav .header-button a:hover, header .nav .header-button a:focus {
   background-color: rgba(255, 255, 255, 0);
   color: black;
+  outline: 0;
 }
 
 body {
