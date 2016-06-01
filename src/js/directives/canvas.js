@@ -14,6 +14,7 @@ function drawOnCanvas() {
       var drawing = false;
       var lastX;
       var lastY;
+      var socket  = io();
 
       element.bind("mousedown", function(event) {
         if (event.offsetX !== undefined) {
@@ -48,12 +49,23 @@ function drawOnCanvas() {
       }
 
       function draw(lX, lY, cX, cY) {
-        ctx.moveTo(lX,lY);
-        ctx.lineTo(cX,cY);
-        ctx.strokeStyle = scope.color;
-        ctx.lineWidth   = scope.size;
-        ctx.stroke();
+        socket.emit("drawing", {
+          lX: lX,
+          lY: lY,
+          cX: cX,
+          cY: cY,
+          color: scope.color,
+          size: scope.size
+        });
       }
+
+      socket.on("drawing", function(imgProps) {
+        ctx.moveTo(imgProps.lX, imgProps.lY);
+        ctx.lineTo(imgProps.cX, imgProps.cY);
+        ctx.strokeStyle = imgProps.color;
+        ctx.lineWidth   = imgProps.size;
+        ctx.stroke();
+      });
     }
   };
 }
