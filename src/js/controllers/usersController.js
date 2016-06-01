@@ -2,8 +2,8 @@ angular
 .module("sketchApp")
 .controller("UsersController", UsersController);
 
-UsersController.$inject = ["User", "CurrentUser", "$state", "$uibModal"];
-function UsersController(User, CurrentUser, $state, $uibModal){
+UsersController.$inject = ["User", "CurrentUser", "$state", "$uibModal", "$uibModalStack"];
+function UsersController(User, CurrentUser, $state, $uibModal, $uibModalStack){
   var self = this;
 
   self.all            = [];
@@ -15,6 +15,7 @@ function UsersController(User, CurrentUser, $state, $uibModal){
   self.login          = login;
   self.logout         = logout;
   self.openModal      = openModal;
+  self.closeModal     = closeModal;
   self.checkLoggedIn  = checkLoggedIn;
 
   function getUsers() {
@@ -63,7 +64,7 @@ function UsersController(User, CurrentUser, $state, $uibModal){
   }
 
   function closeModal() {
-    $close(self.modalInstance);
+    $uibModalStack.dismissAll();
   }
 
   function logout() {
