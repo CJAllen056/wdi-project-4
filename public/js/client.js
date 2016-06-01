@@ -56038,19 +56038,15 @@ function mainRouter($stateProvider, $urlRouterProvider) {
       url: "/",
       templateUrl: "../views/home.html"
     })
-    .state("users", {
-      url: "/users",
-      templateUrl: "../views/users/index.html"
-    })
-    .state("user", {
-      url: "/users/:id",
-      templateUrl: "../views/users/show.html",
-      controller: function($scope, $stateParams, User) {
-        User.get({ id: $stateParams.id }, function(res){
-          $scope.$parent.users.user = res.user;
-        });
-      }
-    })
+    // .state("user", {
+    //   url: "/users/:id",
+    //   templateUrl: "../views/users/show.html",
+    //   controller: function($scope, $stateParams, User) {
+    //     User.get({ id: $stateParams.id }, function(res){
+    //       $scope.$parent.users.user = res.user;
+    //     });
+    //   }
+    // })
     .state("canvas", {
       url: "/game",
       templateUrl: "../views/gameBoard.html"
@@ -56138,7 +56134,6 @@ function UsersController(User, CurrentUser, $state, $uibModal, $uibModalStack){
   self.login          = login;
   self.logout         = logout;
   self.openModal      = openModal;
-  self.modalClass     = modalClass;
   self.closeModal     = closeModal;
   self.checkLoggedIn  = checkLoggedIn;
 
@@ -56185,12 +56180,6 @@ function UsersController(User, CurrentUser, $state, $uibModal, $uibModalStack){
     // self.modalInstance.result.then(function(selectedItem) {
     //   self.selected = selectedItem;
     // });
-  }
-
-  function modalClass(modal) {
-    console.log("hello");
-    var newClass = "modal-" + modal;
-    $(".modal-content").addClass(newClass);
   }
 
   function closeModal() {

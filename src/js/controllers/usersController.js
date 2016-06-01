@@ -15,7 +15,6 @@ function UsersController(User, CurrentUser, $state, $uibModal, $uibModalStack){
   self.login          = login;
   self.logout         = logout;
   self.openModal      = openModal;
-  self.modalClass     = modalClass;
   self.closeModal     = closeModal;
   self.checkLoggedIn  = checkLoggedIn;
 
@@ -62,12 +61,6 @@ function UsersController(User, CurrentUser, $state, $uibModal, $uibModalStack){
     // self.modalInstance.result.then(function(selectedItem) {
     //   self.selected = selectedItem;
     // });
-  }
-
-  function modalClass(modal) {
-    console.log("hello");
-    var newClass = "modal-" + modal;
-    $(".modal-content").addClass(newClass);
   }
 
   function closeModal() {

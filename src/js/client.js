@@ -13,19 +13,15 @@ function mainRouter($stateProvider, $urlRouterProvider) {
       url: "/",
       templateUrl: "../views/home.html"
     })
-    .state("users", {
-      url: "/users",
-      templateUrl: "../views/users/index.html"
-    })
-    .state("user", {
-      url: "/users/:id",
-      templateUrl: "../views/users/show.html",
-      controller: function($scope, $stateParams, User) {
-        User.get({ id: $stateParams.id }, function(res){
-          $scope.$parent.users.user = res.user;
-        });
-      }
-    })
+    // .state("user", {
+    //   url: "/users/:id",
+    //   templateUrl: "../views/users/show.html",
+    //   controller: function($scope, $stateParams, User) {
+    //     User.get({ id: $stateParams.id }, function(res){
+    //       $scope.$parent.users.user = res.user;
+    //     });
+    //   }
+    // })
     .state("canvas", {
       url: "/game",
       templateUrl: "../views/gameBoard.html"
