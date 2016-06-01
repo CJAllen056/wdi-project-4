@@ -10,7 +10,7 @@ var config          = require("./config/config");
 
 var app             = express();
 
-var server          = require("http").createServer(app);
+var server          = require("http").Server(app);
 
 mongoose.connect(config.database);
 
@@ -63,12 +63,8 @@ server.listen(config.port, function() {
 
 var io = require("socket.io")(server);
 
-// io.sockets.on("connection", function(socket) {
-//   socket.on("drawClick", function(data) {
-//     socket.broadcast.emit("draw", {
-//       x: data.x,
-//       y: data.y,
-//       type: data.type
-//     });
-//   });
-// });
+io.on("connection", function(socket) {
+  socket.on("chat message", function(msg) {
+    io.emit("chat message", msg);
+  });
+});
