@@ -13,14 +13,6 @@ function mainRouter($stateProvider, $urlRouterProvider) {
       url: "/",
       templateUrl: "../views/home.html"
     })
-    .state("login", {
-      url: "/login",
-      templateUrl: "../views/authentications/login.html"
-    })
-    .state("register", {
-      url: "/register",
-      templateUrl: "../views/authentications/register.html"
-    })
     .state("users", {
       url: "/users",
       templateUrl: "../views/users/index.html"
