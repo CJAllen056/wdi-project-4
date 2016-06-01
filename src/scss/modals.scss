@@ -1,0 +1,80 @@
+.modal-dialog {
+  margin-top: 150px;
+
+  .modal-content {
+    height: 150px;
+    border-radius: 0;
+
+    section {
+      height: 100%;
+
+      form {
+        height: 100%;
+
+        h2 {
+          display: inline-block;
+          margin: 0;
+          padding: 10px 20px 10px;
+          float: left
+        }
+
+        .formLabels {
+          display: inline-block;
+          float: left;
+          height: 100%;
+          width: 20%;
+          padding-top: 53px;
+          border-right: 2px solid #E5A4B3;
+
+          label {
+            height: 30px;
+            width: 100%;
+            margin: 0;
+            padding-right: 2px;
+            padding-top: 2px;
+            border-bottom: 2px solid #91B8E0;
+            text-align: right;
+            line-height: 30px;
+
+            &:first-child {
+              height: 32px;
+              border-top: 2px solid #91B8E0;
+            }
+          }
+        }
+
+        .formInputs {
+          display: inline-block;
+          float: left;
+          width: 80%;
+
+          input {
+            height: 30px;
+            border: 0;
+            border-bottom: 2px solid #91B8E0;
+            border-radius: 0;
+            line-height: 30px;
+
+            &:first-child {
+              height: 32px;
+              border-top: 2px solid #91B8E0;
+            }
+
+            &:focus {
+              outline: 0;
+              box-shadow: none;
+
+            }
+          }
+        }
+
+        .buttonHolder {
+          display: inline-block;
+          float: right;
+          padding-top: 9px;
+          padding-right: 9px;
+        }
+      }
+    }
+  }
+}
