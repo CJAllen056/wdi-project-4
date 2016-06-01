@@ -2,8 +2,8 @@ angular
 .module("sketchApp")
 .controller("UsersController", UsersController);
 
-UsersController.$inject = ["User", "CurrentUser", "$state"];
-function UsersController(User, CurrentUser, $state){
+UsersController.$inject = ["User", "CurrentUser", "$state", "$uibModal"];
+function UsersController(User, CurrentUser, $state, $uibModal){
   var self = this;
 
   self.all            = [];
@@ -14,6 +14,7 @@ function UsersController(User, CurrentUser, $state){
   self.register       = register;
   self.login          = login;
   self.logout         = logout;
+  self.openModal      = openModal;
   self.checkLoggedIn  = checkLoggedIn;
 
   function getUsers() {
@@ -32,7 +33,7 @@ function UsersController(User, CurrentUser, $state){
   }
 
   function handleError(err) {
-    self.error = err;
+    self.error = "Something went wrong";
   }
 
   function register() {
@@ -41,6 +42,32 @@ function UsersController(User, CurrentUser, $state){
 
   function login() {
     User.login(self.user, handleLogin, handleError);
+  }
+
+  function openModal(modal) {
+    var modalInstance = $uibModal.open({
+      templateUrl:  "../views/authentications/" + modal + ".html",
+      controller:   "UsersController",
+      controllerAs: "users",
+      size:         "md",
+      resolve:      {
+        items: function() {
+          return self.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function(selectedItem) {
+      self.selected = selectedItem;
+    });
+  }
+
+  function loginOk() {
+    $uibModalInstance.close();
+  }
+
+  function loginCancel() {
+    $uibModalInstance.dismiss('cancel');
   }
 
   function logout() {

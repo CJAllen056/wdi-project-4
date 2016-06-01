@@ -1,5 +1,5 @@
 angular
-.module("sketchApp", ["ngResource", "angular-jwt", "ui.router"])
+.module("sketchApp", ["ngResource", "angular-jwt", "ui.router", "ui.bootstrap"])
 .constant("API", "http://localhost:3000/api")
 .config(mainRouter)
 .config(function($httpProvider) {
