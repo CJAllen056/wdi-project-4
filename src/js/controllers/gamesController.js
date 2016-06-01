@@ -4,7 +4,8 @@ angular
 
 GamesController.$inject = ["Game", "$state"];
 function GamesController(Game, $state) {
-  var self = this;
+  var self    = this;
+  var socket  = io();
 
   self.all        = [];
   self.getGames   = getGames;
@@ -49,7 +50,12 @@ function GamesController(Game, $state) {
   }
 
   function clearBoard() {
-    var ctx = $(".canvas")[0].getContext("2d");
-    ctx.clearRect(0, 0, 660, 500);
+    socket.emit("clear board");
   }
+
+  socket.on("clear board", function() {
+    var ctx = $(".canvas")[0].getContext("2d");
+
+    ctx.clearRect(0, 0, 660, 500);
+  });
 }

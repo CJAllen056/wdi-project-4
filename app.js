@@ -70,4 +70,7 @@ io.on("connection", function(socket) {
   socket.on("drawing", function(imgProperties) {
     io.emit("drawing", imgProperties);
   });
+  socket.on("clear board", function() {
+    io.emit("clear board");
+  });
 });
