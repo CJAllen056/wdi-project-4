@@ -8195,12 +8195,15 @@ header .nav .header-button a:hover, header .nav .header-button a:focus {
 }
 
 .modal-dialog .modal-content {
-  height: 150px;
   border-radius: 0;
 }
 
-.modal-dialog .modal-content section {
-  height: 100%;
+.modal-dialog .modal-content section.modal-login {
+  height: 150px;
+}
+
+.modal-dialog .modal-content section.modal-register {
+  height: 300px;
 }
 
 .modal-dialog .modal-content section form {

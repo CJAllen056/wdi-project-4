@@ -2,11 +2,17 @@
   margin-top: 150px;
 
   .modal-content {
-    height: 150px;
     border-radius: 0;
 
     section {
-      height: 100%;
+
+      &.modal-login {
+        height: 150px;
+      }
+
+      &.modal-register {
+        height: 300px;
+      }
 
       form {
         height: 100%;

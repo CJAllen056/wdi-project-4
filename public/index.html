@@ -25,10 +25,10 @@
           <li class="header-button" ng-show="users.checkLoggedIn()">
             <a href="#" ui-sref="users">Users</a>
           </li>
-          <li class="header-button" ng-hide="users.checkLoggedIn()" ng-click="users.openModal('login')">
+          <li class="header-button" ng-hide="users.checkLoggedIn()" ng-click="users.openModal('login'); users.modalClass('login')">
             <a href="#">Login</a>
           </li>
-          <li class="header-button" ng-hide="users.checkLoggedIn()" ng-click="users.openModal('register')">
+          <li class="header-button" ng-hide="users.checkLoggedIn()" ng-click="users.openModal('register'); users.modalClass('register')">
             <a href="#">Register</a>
           </li>
           <li class="header-button" ng-show="users.checkLoggedIn()">
