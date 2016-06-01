@@ -1,1 +1,8 @@
-<h1>Home</h1>
+<div ng-controller="GameController as games" class="gameList">
+  <ul>
+    <li ng-repeat="game in games.all">
+      <h2>{{ game.topic }}</h2>
+      <p>{{ game.users.length }}</p>
+    </li>
+  </ul>
+</div>

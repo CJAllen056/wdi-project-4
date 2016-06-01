@@ -1,7 +1,7 @@
 var mongoose  = require("mongoose");
 
 var gameSchema = new mongoose.Schema({
-  topic: [{ type: mongoose.Schema.ObjectId, ref: "Topic" }],
+  topic: { type: String },
   users: [{ type: mongoose.Schema.ObjectId, ref: "User" }]
 });
 
