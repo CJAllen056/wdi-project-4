@@ -56103,6 +56103,8 @@ function GamesController(Game, $state, CurrentUser, $stateParams, User, $uibModa
   }
 
   function joinGame(game) {
+    // CurrentUser();
+    // console.log(CurrentUser.user);
     if (CurrentUser.user) {
       User.get({ id: CurrentUser.user._id }, function(data) {
         self.user = data.user;
