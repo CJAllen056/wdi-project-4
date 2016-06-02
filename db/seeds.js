@@ -196,19 +196,34 @@ var game4 = new Game({
     "One Hundred and One Dalmatians",
     "The Sword in the Stone",
     "Mary Poppins",
+    "supercalifragilisticexpialidocious",
     "The Jungle Book",
+    "Mowgli",
+    "Bagheera",
+    "Baloo",
+    "Shere Khan",
     "The Aristocats",
     "Bedknobs and Broomsticks",
     "Robin Hood",
+    "Maid Marian",
     "The Fox and the Hound",
     "The Black Cauldron",
     "Oliver and Company",
     "The Little Mermaid",
+    "Ursula",
     "Beauty and the Beast",
     "Aladdin",
+    "Jasmine",
     "The Lion King",
+    "Simba",
+    "Mufasa",
+    "Scar",
+    "Timon and Pumba",
     "Pocahontas",
     "Toy Story",
+    "Woody",
+    "Buzz Lightyear",
+    "Mr. Potato Head",
     "The Hunchback of Notre Dame",
     "Hercules",
     "Mulan",
@@ -219,6 +234,8 @@ var game4 = new Game({
     "Monsters Inc.",
     "Lilo and Stitch",
     "Finding Nemo",
+    "Nemo",
+    "Dory",
     "The Incredibles",
     "Cars",
     "Ratatouille",
@@ -242,5 +259,13 @@ var game4 = new Game({
     "Piglet",
     "Tigger",
     "Eeyore"
-  ]
-})
+  ],
+  roundLength:  90,
+  users:        [],
+  difficulty:   "Medium"
+});
+
+game4.save(function(err, game) {
+  if (err) return console.log(err);
+  console.log("game added: ", game);
+});
