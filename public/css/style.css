@@ -8121,10 +8121,11 @@ button.close {
 
 .toolbar .toolbarColor.smallPicker div, .toolbar .toolbarSize.smallPicker div {
   display: inline-block;
-  border: 2px solid black;
+  border: 1px solid black;
+  background-color: black;
   border-radius: 4px;
-  width: 0;
-  height: 0;
+  width: 4px;
+  height: 4px;
   margin: 16px auto;
 }
 
@@ -8134,10 +8135,11 @@ button.close {
 
 .toolbar .toolbarColor.mediumPicker div, .toolbar .toolbarSize.mediumPicker div {
   display: inline-block;
-  border: 8px solid black;
+  border: 1px solid black;
+  background-color: black;
   border-radius: 10px;
-  width: 0;
-  height: 0;
+  width: 16px;
+  height: 16px;
   margin: 8px auto;
 }
 
@@ -8147,10 +8149,11 @@ button.close {
 
 .toolbar .toolbarColor.largePicker div, .toolbar .toolbarSize.largePicker div {
   display: inline-block;
-  border: 14px solid black;
+  border: 1px solid black;
+  background-color: black;
   border-radius: 28px;
-  width: 0;
-  height: 0;
+  width: 28px;
+  height: 28px;
   margin: 3px auto;
 }
 

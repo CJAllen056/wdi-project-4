@@ -56066,8 +56066,16 @@ function BoardController(Game, $stateParams) {
   var self = this;
   var socket = io();
 
-  self.currentGame  = currentGame;
   self.game         = {};
+  self.currentGame  = currentGame;
+
+  function currentGame() {
+    Game.get({ id:  $stateParams.id }, function(data) {
+      self.game = data.game;
+    });
+  }
+
+  self.currentGame();
 
   self.color      = "";
   self.colors     = {
@@ -56093,15 +56101,19 @@ function BoardController(Game, $stateParams) {
 
   self.clearBoard = clearBoard;
 
-  function currentGame() {
-    Game.get({ id:  $stateParams.id }, function(data) {
-      self.game = data.game;
-    });
-  }
-
   function pickColor(color) {
     self.color = color;
-    $(".toolbarSize > div").css("border-color", color);
+    if (color !== "white") {
+      $(".toolbarSize > div").css({
+        "border-color":     color,
+        "background-color": color
+      });
+    } else {
+      $(".toolbarSize > div").css({
+        "border-color":     "black",
+        "background-color": "white"
+      });
+    }
   }
 
   function pickSize(size) {
@@ -56118,7 +56130,7 @@ function BoardController(Game, $stateParams) {
     ctx.clearRect(0, 0, 660, 500);
   });
 
-  self.currentGame();
+
 }
 
 angular
