@@ -1,8 +1,10 @@
-<div ng-controller="GameController as games" class="gameList">
+<div ng-controller="GamesController as games" class="gameList">
   <ul>
     <li ng-repeat="game in games.all">
       <h2>{{ game.topic }}</h2>
-      <p>{{ game.users.length }}</p>
+      <p>Current Players: {{ game.users.length }}</p>
+      <p>{{ game.difficulty }}</p>
+      <button class="btn btn-default" ng-click="games.joinGame(game)">Join Game</button>
     </li>
   </ul>
 </div>

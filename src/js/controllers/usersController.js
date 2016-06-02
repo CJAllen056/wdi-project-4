@@ -57,10 +57,6 @@ function UsersController(User, CurrentUser, $state, $uibModal, $uibModalStack){
         }
       }
     });
-
-    // self.modalInstance.result.then(function(selectedItem) {
-    //   self.selected = selectedItem;
-    // });
   }
 
   function closeModal() {
@@ -81,7 +77,6 @@ function UsersController(User, CurrentUser, $state, $uibModal, $uibModalStack){
   if (checkLoggedIn()) {
     self.getUsers();
   }
-
 
   return self;
 }

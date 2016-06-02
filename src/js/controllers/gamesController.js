@@ -2,13 +2,14 @@ angular
 .module("sketchApp")
 .controller("GamesController", GamesController);
 
-GamesController.$inject = ["Game", "$state"];
-function GamesController(Game, $state) {
+GamesController.$inject = ["Game", "$state", "CurrentUser"];
+function GamesController(Game, $state, CurrentUser) {
   var self    = this;
   var socket  = io();
 
   self.all        = [];
   self.getGames   = getGames;
+  self.joinGame   = joinGame;
 
   self.color      = "";
   self.colors     = {
@@ -40,6 +41,12 @@ function GamesController(Game, $state) {
     });
   }
 
+  function joinGame(game) {
+    self.currentGame = Game.get({ id: game._id });
+    console.log(self.currentGame);
+    $state.go("game/" + self.currentGame.game._id);
+  }
+
   function pickColor(color) {
     self.color = color;
     $(".toolbarSize > div").css("border-color", color);
@@ -58,4 +65,6 @@ function GamesController(Game, $state) {
 
     ctx.clearRect(0, 0, 660, 500);
   });
+
+  self.getGames();
 }

@@ -56038,18 +56038,14 @@ function mainRouter($stateProvider, $urlRouterProvider) {
       url: "/",
       templateUrl: "../views/home.html"
     })
-    // .state("user", {
-    //   url: "/users/:id",
-    //   templateUrl: "../views/users/show.html",
-    //   controller: function($scope, $stateParams, User) {
-    //     User.get({ id: $stateParams.id }, function(res){
-    //       $scope.$parent.users.user = res.user;
-    //     });
-    //   }
-    // })
     .state("canvas", {
-      url: "/game",
-      templateUrl: "../views/gameBoard.html"
+      url: "/game/:id",
+      templateUrl: "../views/gameBoard.html",
+      controller: function($scope, $stateParams, Game) {
+        Game.get({ id: $stateParams.id }, function(res) {
+          $scope.$parent.games.game = res.game;
+        });
+      }
     });
 
   $urlRouterProvider.otherwise("/");
@@ -56059,13 +56055,14 @@ angular
 .module("sketchApp")
 .controller("GamesController", GamesController);
 
-GamesController.$inject = ["Game", "$state"];
-function GamesController(Game, $state) {
+GamesController.$inject = ["Game", "$state", "CurrentUser"];
+function GamesController(Game, $state, CurrentUser) {
   var self    = this;
   var socket  = io();
 
   self.all        = [];
   self.getGames   = getGames;
+  self.joinGame   = joinGame;
 
   self.color      = "";
   self.colors     = {
@@ -56097,6 +56094,12 @@ function GamesController(Game, $state) {
     });
   }
 
+  function joinGame(game) {
+    self.currentGame = Game.get({ id: game._id });
+    console.log(self.currentGame);
+    $state.go("game/" + self.currentGame.game._id);
+  }
+
   function pickColor(color) {
     self.color = color;
     $(".toolbarSize > div").css("border-color", color);
@@ -56115,6 +56118,8 @@ function GamesController(Game, $state) {
 
     ctx.clearRect(0, 0, 660, 500);
   });
+
+  self.getGames();
 }
 
 angular
@@ -56176,10 +56181,6 @@ function UsersController(User, CurrentUser, $state, $uibModal, $uibModalStack){
         }
       }
     });
-
-    // self.modalInstance.result.then(function(selectedItem) {
-    //   self.selected = selectedItem;
-    // });
   }
 
   function closeModal() {
@@ -56200,7 +56201,6 @@ function UsersController(User, CurrentUser, $state, $uibModal, $uibModalStack){
   if (checkLoggedIn()) {
     self.getUsers();
   }
-
 
   return self;
 }
