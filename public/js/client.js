@@ -56229,12 +56229,12 @@ function drawOnCanvas() {
           lastY = event.offsetY;
         }
 
-        ctx.beginPath();
         drawing = true;
       });
 
       element.bind("mousemove", function(event) {
         if (drawing) {
+
           if (event.offsetX !== undefined) {
             currentX = event.offsetX;
             currentY = event.offsetY;
@@ -56267,6 +56267,7 @@ function drawOnCanvas() {
       }
 
       socket.on("drawing", function(imgProps) {
+        ctx.beginPath();
         ctx.moveTo(imgProps.lX, imgProps.lY);
         ctx.lineTo(imgProps.cX, imgProps.cY);
         ctx.strokeStyle = imgProps.color;
