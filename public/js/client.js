@@ -56103,10 +56103,9 @@ function GamesController(Game, $state, CurrentUser, $stateParams, User, $uibModa
   }
 
   function joinGame(game) {
-    // CurrentUser();
-    // console.log(CurrentUser.user);
-    if (CurrentUser.user) {
-      User.get({ id: CurrentUser.user._id }, function(data) {
+    console.log(!!CurrentUser.getUser());
+    if (!!CurrentUser.getUser()) {
+      User.get({ id: CurrentUser.getUser()._id }, function(data) {
         self.user = data.user;
 
         game.users.push(self.user);
@@ -56423,15 +56422,13 @@ function CurrentUser(TokenService){
     var self = this;
     self.getUser = getUser;
     self.clearUser = clearUser;
-    self.user = getUser();
 
     function getUser() {
-        return self.user ? self.user : TokenService.decodeToken();
+        return TokenService.decodeToken();
     }
 
     function clearUser(){
       TokenService.removeToken();
-      self.user = null;
     }
 }
 
@@ -56463,8 +56460,9 @@ function TokenService($window, jwtHelper) {
   function decodeToken(){
     var token = self.getToken();
     if (token) {
-      var decodedUser = jwtHelper.decodeToken(token);
-      return token ? decodedUser : null;
+      return jwtHelper.decodeToken(token);
+    } else {
+      return null;
     }
   }
 }
