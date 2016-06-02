@@ -57,7 +57,7 @@ function GamesController(Game, $state, CurrentUser, $stateParams, User, $uibModa
       console.log($("canvas").html());
     } else {
       self.modalInstance = $uibModal.open({
-        templateUrl:  "../views/authentications/register.html",
+        templateUrl:  "../views/authentications/login-w-register.html",
         controller:   "UsersController",
         controllerAs: "users",
         size:         "md",

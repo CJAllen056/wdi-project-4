@@ -8206,6 +8206,10 @@ header .nav .header-button a:hover, header .nav .header-button a:focus {
   height: 300px;
 }
 
+.modal-dialog .modal-content section.modal-login-w-register {
+  height: 180px;
+}
+
 .modal-dialog .modal-content section form {
   height: 100%;
 }
@@ -8248,20 +8252,22 @@ header .nav .header-button a:hover, header .nav .header-button a:focus {
   width: 80%;
 }
 
-.modal-dialog .modal-content section form .formInputs input {
+.modal-dialog .modal-content section form .formInputs input, .modal-dialog .modal-content section form .formInputs p {
   height: 30px;
+  margin: 0;
+  padding-left: 4px;
   border: 0;
   border-bottom: 2px solid #91B8E0;
   border-radius: 0;
   line-height: 30px;
 }
 
-.modal-dialog .modal-content section form .formInputs input:first-child {
+.modal-dialog .modal-content section form .formInputs input:first-child, .modal-dialog .modal-content section form .formInputs p:first-child {
   height: 32px;
   border-top: 2px solid #91B8E0;
 }
 
-.modal-dialog .modal-content section form .formInputs input:focus {
+.modal-dialog .modal-content section form .formInputs input:focus, .modal-dialog .modal-content section form .formInputs p:focus {
   outline: 0;
   box-shadow: none;
 }
