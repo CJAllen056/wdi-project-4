@@ -269,3 +269,77 @@ game4.save(function(err, game) {
   if (err) return console.log(err);
   console.log("game added: ", game);
 });
+
+var game5 = new Game({
+  topic:    "General+",
+  prompts:  [
+    "Difficult",
+    "Wonder",
+    "Question",
+    "Enticing",
+  ],
+  roundLength:  120,
+  users:        [],
+  difficulty:   "Hard"
+});
+
+game5.save(function(err, game) {
+  if (err) return console.log(err);
+  console.log("game added: ", game);
+});
+
+var game6 = new Game({
+  topic: "SpeedRound",
+  prompts: [
+    "Man",
+    "Beach",
+    "Building",
+    "Hospital",
+    "Cool"
+  ],
+  roundLength:  30,
+  users:        [],
+  difficulty:   "Fast"
+});
+
+game6.save(function(err, game) {
+  if (err) return console.log(err);
+  console.log("game added: ", game);
+});
+
+var game7 = new Game({
+  topic: "Music",
+  prompts: [
+    "Madonna",
+    "Michael Jackson",
+    "Elvis Presley",
+    "The Beatles"
+  ],
+  roundLength:  60,
+  users:        [],
+  difficulty:   "Medium"
+});
+
+game7.save(function(err, game) {
+  if (err) return console.log(err);
+  console.log("game added: ", game);
+});
+
+var game8 = new Game({
+  topic: "Kids",
+  prompts: [
+    "Table",
+    "House",
+    "Dog",
+    "Cat",
+    "Pencil"
+  ],
+  roundLength:  90,
+  users:        [],
+  difficulty:   "Very Easy"
+});
+
+game8.save(function(err, game) {
+  if (err) return console.log(err);
+  console.log("game added: ", game);
+});
