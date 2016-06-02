@@ -3,8 +3,10 @@
   <ul>
     <li ng-repeat="game in games.all">
       <h2>{{ game.topic }}</h2>
-      <p>Current Players: {{ game.users.length }}</p>
-      <p>{{ game.difficulty }}</p>
+      <div>
+        <p>Current Players: {{ game.users.length }}</p>
+        <p>Difficulty: {{ game.difficulty }}</p>
+      </div>
       <button class="btn btn-default" ng-click="games.joinGame(game)">Join Game</button>
     </li>
   </ul>
