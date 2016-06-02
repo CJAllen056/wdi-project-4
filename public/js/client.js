@@ -56043,7 +56043,7 @@ function mainRouter($stateProvider, $urlRouterProvider) {
       templateUrl: "../views/gameBoard.html",
       controller: function($scope, $stateParams, Game) {
         Game.get({ id: $stateParams.id }, function(res) {
-          $scope.$parent.games.game = res.game;
+          // $scope.$parent.games.game = res.game;
         });
       }
     });
@@ -56055,14 +56055,16 @@ angular
 .module("sketchApp")
 .controller("GamesController", GamesController);
 
-GamesController.$inject = ["Game", "$state", "CurrentUser"];
-function GamesController(Game, $state, CurrentUser) {
+GamesController.$inject = ["Game", "$state", "CurrentUser", "$stateParams", "User"];
+function GamesController(Game, $state, CurrentUser, $stateParams, User) {
   var self    = this;
   var socket  = io();
 
-  self.all        = [];
-  self.getGames   = getGames;
-  self.joinGame   = joinGame;
+  self.all          = [];
+  self.getGames     = getGames;
+  self.joinGame     = joinGame;
+  self.currentGame  = currentGame;
+  self.game         = {};
 
   self.color      = "";
   self.colors     = {
@@ -56095,9 +56097,22 @@ function GamesController(Game, $state, CurrentUser) {
   }
 
   function joinGame(game) {
-    self.currentGame = Game.get({ id: game._id });
-    console.log(self.currentGame);
-    $state.go("game/" + self.currentGame.game._id);
+    User.get({ id: CurrentUser.user._id }, function(data) {
+      self.user = data.user;
+
+      game.users.push(self.user);
+      Game.update({ id: game._id }, game, function(data) {
+        self.game = data.game;
+      });
+    });
+
+    $state.go("canvas", { id: game._id });
+  }
+
+  function currentGame() {
+    Game.get({ id:  $stateParams.id }, function(data) {
+      self.game = data.game;
+    });
   }
 
   function pickColor(color) {
@@ -56318,6 +56333,7 @@ function Game($resource, API) {
     {
       "get":    { method: "GET" },
       "save":   { method: "POST" },
+      "update": { method: "PUT" },
       "query":  { method: "GET", isArray: false},
     }
   );

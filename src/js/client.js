@@ -18,7 +18,7 @@ function mainRouter($stateProvider, $urlRouterProvider) {
       templateUrl: "../views/gameBoard.html",
       controller: function($scope, $stateParams, Game) {
         Game.get({ id: $stateParams.id }, function(res) {
-          $scope.$parent.games.game = res.game;
+          // $scope.$parent.games.game = res.game;
         });
       }
     });

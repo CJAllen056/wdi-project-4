@@ -14,6 +14,13 @@ function gamesCreate(req, res) {
   });
 }
 
+function gamesUpdate(req, res) {
+  Game.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true }, function(err, game) {
+    if(err) return res.status(500).json({ message: "Unable to update game" });
+    res.status(200).send(game);
+  });
+}
+
 function gamesShow(req, res) {
   Game.findById(req.params.id, function(err, game) {
     if (err) return res.status(404).json({ message: "Request for game failed" });
@@ -23,6 +30,7 @@ function gamesShow(req, res) {
 
 module.exports = {
   create: gamesCreate,
-  index: gamesIndex,
-  show: gamesShow
+  index:  gamesIndex,
+  update: gamesUpdate,
+  show:   gamesShow
 };

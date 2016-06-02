@@ -14,7 +14,8 @@ function register(req, res, next) {
       fName:    user.fName || "",
       lName:    user.lName || "",
       image:    user.image || "",
-      username: user.username || ""
+      username: user.username || "",
+      _id:      user._id || ""
     };
     var token   = jwt.sign(payload, secret, { expiresIn: 60*60*24 });
 
@@ -41,7 +42,8 @@ function login(req, res, next) {
       fName:    user.fName || "",
       lName:    user.lName || "",
       image:    user.image || "",
-      username: user.username || ""
+      username: user.username || "",
+      _id:      user._id || ""
     };
 
     var token   = jwt.sign(payload, secret, { expiresIn: 60*60*24 });

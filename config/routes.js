@@ -22,6 +22,7 @@ router.route("/games")
 .post(gamesController.create);
 
 router.route("/games/:id")
-.get(gamesController.show);
+.get(gamesController.show)
+.put(gamesController.update);
 
 module.exports = router;

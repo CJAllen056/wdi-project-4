@@ -1,4 +1,4 @@
-<section ng-controller="GamesController as game">
+<section ng-controller="GamesController as game" ng-init="game.currentGame()">
   <div class="toolbar">
     <div ng-repeat="(color,hash) in game.colors" class="toolbarColor {{ color + 'Picker'}}" ng-click="game.pickColor(hash)"></div>
     <div ng-repeat="(size, value) in game.sizes" class="toolbarSize {{ size + 'Picker' }}" ng-click="game.pickSize(value)"><div></div></div>
@@ -12,6 +12,6 @@
     <input chat-box class="inputGuess" action="submit" placeholder="Type your guess here..."/>
   </div>
   <div class="scorePane">
-    <ul class="scores"></ul>
+    <ul class="scores">hello: {{ game.game.users }}</ul>
   </div>
 </section>

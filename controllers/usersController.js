@@ -9,6 +9,7 @@ function usersIndex(req, res) {
 
 function usersShow(req, res) {
   User.findById(req.params.id, function(err, user) {
+    console.log(user);
     if (err) return res.status(404).json({ message: "Request for user failed" });
     res.status(200).json({ user: user });
   });

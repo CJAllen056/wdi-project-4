@@ -9,6 +9,7 @@ function Game($resource, API) {
     {
       "get":    { method: "GET" },
       "save":   { method: "POST" },
+      "update": { method: "PUT" },
       "query":  { method: "GET", isArray: false},
     }
   );
