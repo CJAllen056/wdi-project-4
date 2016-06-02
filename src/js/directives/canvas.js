@@ -2,12 +2,14 @@ angular
 .module("sketchApp")
 .directive("canvasDraw", drawOnCanvas);
 
+
 function drawOnCanvas() {
   return {
     restrict: "A",
     scope: {
       color:  "=",
-      size:   "="
+      size:   "=",
+      game:   "="
     },
     link: function(scope, element) {
       var ctx     = element[0].getContext("2d");
@@ -50,22 +52,25 @@ function drawOnCanvas() {
 
       function draw(lX, lY, cX, cY) {
         socket.emit("drawing", {
-          lX: lX,
-          lY: lY,
-          cX: cX,
-          cY: cY,
-          color: scope.color,
-          size: scope.size
+          lX:     lX,
+          lY:     lY,
+          cX:     cX,
+          cY:     cY,
+          color:  scope.color,
+          size:   scope.size,
+          game:   scope.game
         });
       }
 
       socket.on("drawing", function(imgProps) {
-        ctx.beginPath();
-        ctx.moveTo(imgProps.lX, imgProps.lY);
-        ctx.lineTo(imgProps.cX, imgProps.cY);
-        ctx.strokeStyle = imgProps.color;
-        ctx.lineWidth   = imgProps.size;
-        ctx.stroke();
+        if (imgProps.game === scope.game) {
+          ctx.beginPath();
+          ctx.moveTo(imgProps.lX, imgProps.lY);
+          ctx.lineTo(imgProps.cX, imgProps.cY);
+          ctx.strokeStyle = imgProps.color;
+          ctx.lineWidth   = imgProps.size;
+          ctx.stroke();
+        }
       });
     }
   };

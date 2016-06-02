@@ -4,7 +4,7 @@
     <div ng-repeat="(size, value) in game.sizes" class="toolbarSize {{ size + 'Picker' }}" ng-click="game.pickSize(value)"><div></div></div>
     <div class="toolbarClear" ng-click="game.clearBoard()"><p>Clear</p></div>
   </div>
-  <canvas canvas-draw width="660" height="500" class="canvas" color="game.color" size="game.size"></canvas>
+  <canvas canvas-draw width="660" height="500" class="canvas" color="game.color" size="game.size" game="game.game._id"></canvas>
   <div class="chatPane">
     <div class="chatArea">
       <ul class="messages"></ul>
