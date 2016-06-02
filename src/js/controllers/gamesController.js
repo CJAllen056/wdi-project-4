@@ -52,8 +52,8 @@ function GamesController(Game, $state, CurrentUser, $stateParams, User) {
         self.game = data.game;
       });
     });
-
     $state.go("canvas", { id: game._id });
+    console.log($("canvas").html());
   }
 
   function currentGame() {

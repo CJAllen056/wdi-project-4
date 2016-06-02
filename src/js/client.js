@@ -16,9 +16,15 @@ function mainRouter($stateProvider, $urlRouterProvider) {
     .state("canvas", {
       url: "/game/:id",
       templateUrl: "../views/gameBoard.html",
-      controller: function($scope, $stateParams, Game) {
+      // controller: function($stateParams, Game) {
+      //   Game.get({ id: $stateParams.id }, function(res) {
+      //     // $scope.$parent.games.game = res.game;
+      //   });
+      // },
+      onExit: function($stateParams, Game) {
         Game.get({ id: $stateParams.id }, function(res) {
-          // $scope.$parent.games.game = res.game;
+          console.log(res.game.users);
+          console.log($stateParams);
         });
       }
     });
