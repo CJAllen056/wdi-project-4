@@ -56061,8 +56061,8 @@ angular
 .module("sketchApp")
 .controller("GamesController", GamesController);
 
-GamesController.$inject = ["Game", "$state", "CurrentUser", "$stateParams", "User"];
-function GamesController(Game, $state, CurrentUser, $stateParams, User) {
+GamesController.$inject = ["Game", "$state", "CurrentUser", "$stateParams", "User", "$uibModal"];
+function GamesController(Game, $state, CurrentUser, $stateParams, User, $uibModal) {
   var self    = this;
   var socket  = io();
 
@@ -56103,16 +56103,30 @@ function GamesController(Game, $state, CurrentUser, $stateParams, User) {
   }
 
   function joinGame(game) {
-    User.get({ id: CurrentUser.user._id }, function(data) {
-      self.user = data.user;
+    if (CurrentUser.user) {
+      User.get({ id: CurrentUser.user._id }, function(data) {
+        self.user = data.user;
 
-      game.users.push(self.user);
-      Game.update({ id: game._id }, game, function(data) {
-        self.game = data.game;
+        game.users.push(self.user);
+        Game.update({ id: game._id }, game, function(data) {
+          self.game = data.game;
+        });
       });
-    });
-    $state.go("canvas", { id: game._id });
-    console.log($("canvas").html());
+      $state.go("canvas", { id: game._id });
+      console.log($("canvas").html());
+    } else {
+      self.modalInstance = $uibModal.open({
+        templateUrl:  "../views/authentications/register.html",
+        controller:   "UsersController",
+        controllerAs: "users",
+        size:         "md",
+        resolve:      {
+          items: function() {
+            return self.items;
+          }
+        }
+      });
+    }
   }
 
   function currentGame() {
