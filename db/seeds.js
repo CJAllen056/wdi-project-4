@@ -5,6 +5,8 @@ mongoose.connect(databaseURL);
 
 var Game = require("../models/game");
 
+Game.collection.drop();
+
 var game1 = new Game({
   topic:    "Films",
   prompts:  [
