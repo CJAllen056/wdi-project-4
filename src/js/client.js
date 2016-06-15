@@ -1,6 +1,6 @@
 angular
 .module("sketchApp", ["ngResource", "angular-jwt", "ui.router", "ui.bootstrap"])
-.constant("API", "http://localhost:3000/api")
+.constant("API", "http://nameless-lake-45770.herokuapp.com/api")
 .config(mainRouter)
 .config(function($httpProvider) {
   $httpProvider.interceptors.push("authInterceptor");
