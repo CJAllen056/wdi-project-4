@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var databaseURL = "mongodb://localhost/sketch-app";
+var databaseURL = process.env.MONGODB_URI || "mongodb://localhost/sketch-app";
 mongoose.connect(databaseURL);
 
 var Game = require("../models/game");
